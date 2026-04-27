@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“e”农通 - 农机商城</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/mall.css">
+  <link rel="stylesheet" href="css/enhance.css">
+  <link rel="stylesheet" href="css/course-player-admin.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="e农通Logo" style="height: 40px;"> “e”农通
+    </div>
+    
+    <div class="nav-links">
+      <a href="home.html" class="nav-item">首页</a>
+      <a href="course.html" class="nav-item">培训课程</a>
+      <a href="mall.html" class="nav-item active">商城</a>
+      <a href="community.html" class="nav-item">信息交流</a>
+      <a href="profile.html" class="nav-item">个人中心</a>
+    </div>
+    
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" placeholder="搜索农机、配件、品牌...">
+        <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+      </div>
+      <div class="user-actions">
+        <a href="messages.html" style="text-decoration: none;">
+          <i class="fa-solid fa-bell" style="font-size: 20px; color: var(--text-secondary); margin-right: 20px; cursor: pointer;"></i>
+        </a>
+        <a href="profile.html" class="user-avatar" style="text-decoration: none; background-image: url('images/avatar.png'); background-size: cover; color: transparent;"></a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 主内容区域 -->
+  <div class="main-content">
+    
+    <div class="mall-container">
+      
+
+
+      <!-- 2. 主体分栏区 -->
+      <div class="mall-layout">
+        
+        <!-- 左侧边栏 -->
+        <div class="mall-sidebar">
+          
+          <div class="category-menu">
+            <div class="menu-title"><i class="fa-solid fa-list" style="margin-right: 8px;"></i> 农机分类</div>
+            <div class="menu-list">
+              <div class="menu-item active" onclick="activateMenu(this)">
+                <span>全部机械</span> <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="menu-item" onclick="activateMenu(this)">
+                <span>动力机械 (拖拉机等)</span> <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="menu-item" onclick="activateMenu(this)">
+                <span>种植机械 (播种、插秧)</span> <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="menu-item" onclick="activateMenu(this)">
+                <span>收获机械 (收割机等)</span> <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="menu-item" onclick="activateMenu(this)">
+                <span>植保机械 (无人机、喷雾机)</span> <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="menu-item" onclick="activateMenu(this)">
+                <span>排灌与配件附件</span> <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-card">
+            <div class="filter-group">
+              <div class="filter-name">品牌选择</div>
+              <div class="filter-tags">
+                <span class="filter-tag active" onclick="toggleTag(this)">不限</span>
+                <span class="filter-tag" onclick="toggleTag(this)">东方红</span>
+                <span class="filter-tag" onclick="toggleTag(this)">雷沃重工</span>
+                <span class="filter-tag" onclick="toggleTag(this)">沃得农机</span>
+                <span class="filter-tag" onclick="toggleTag(this)">大疆农业</span>
+                <span class="filter-tag" onclick="toggleTag(this)">久保田</span>
+              </div>
+            </div>
+            
+            <div class="filter-group">
+              <div class="filter-name">马力段</div>
+              <div class="filter-tags">
+                <span class="filter-tag active" onclick="toggleTag(this)">不限</span>
+                <span class="filter-tag" onclick="toggleTag(this)">100马力以下</span>
+                <span class="filter-tag" onclick="toggleTag(this)">100-150马力</span>
+                <span class="filter-tag" onclick="toggleTag(this)">150-200马力</span>
+                <span class="filter-tag" onclick="toggleTag(this)">200马力以上</span>
+              </div>
+            </div>
+
+            <!-- 特殊筛选：国家补贴 -->
+            <label class="checkbox-filter">
+              <input type="checkbox" checked>
+              仅看「国家农机补贴目录」机型
+            </label>
+          </div>
+
+        </div>
+
+        <!-- 右侧商品区 -->
+        <div class="mall-main">
+          
+          <div class="sort-bar">
+            <div class="sort-options" id="sortTabs">
+              <span class="sort-item active" data-sort="default">综合排序 <i class="fa-solid fa-arrow-down-wide-short"></i></span>
+              <span class="sort-item" data-sort="sales">销量优先 <i class="fa-solid fa-arrow-down-wide-short"></i></span>
+              <span class="sort-item" data-sort="priceAsc">价格 <i class="fa-solid fa-arrow-up-short-wide"></i></span>
+              <span class="sort-item" data-sort="priceDesc">价格 <i class="fa-solid fa-arrow-down-wide-short"></i></span>
+            </div>
+            <div style="font-size: 13px; color: #999;">共为您匹配到 <span style="color: #FF5252; font-weight: bold;">42</span> 款机型</div>
+          </div>
+
+          <div class="product-grid" id="productGrid">
+            
+            <!-- 商品 1 -->
+            <div class="product-card" data-sales="1500" data-price="186000" onclick="window.location.href='mall-detail.html'">
+              <div class="product-img-box">
+                <div class="badge-top-left">TOP 1</div>
+                <div class="badge-top-right">国补名录</div>
+                <img src="./images/g1.png" alt="拖拉机" class="product-img">
+              </div>
+              <div class="product-info">
+                <div class="product-title">东方红 2004 履带式拖拉机 智能导航版 国四排放</div>
+                <div class="product-specs">
+                  <span class="spec-tag">200马力</span>
+                  <span class="spec-tag">履带式</span>
+                  <span class="spec-tag">北斗导航</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="price-main"><small>￥</small>186,000 </div>
+                  <div class="sales-vol">已售 1.5k+</div>
+                </div>
+              </div>
+              <!-- 悬浮操作 -->
+              <div class="product-actions">
+                <button class="btn-buy-sm" onclick="event.stopPropagation(); alert('立即购买')">立即购买</button>
+                <button class="btn-cart-sm" onclick="event.stopPropagation(); alert('已加入购物车')"><i class="fa-solid fa-cart-plus"></i></button>
+              </div>
+            </div>
+            
+            <!-- 商品 2 -->
+            <div class="product-card" data-sales="3200" data-price="54999" onclick="window.location.href='mall-detail.html'">
+              <div class="product-img-box">
+                <div class="badge-top-left" style="background: linear-gradient(135deg, #FF9800, #F57C00);">热销推荐</div>
+                <div class="badge-top-right">国补名录</div>
+                <img src="./images/g2.png" alt="无人机" class="product-img">
+              </div>
+              <div class="product-info">
+                <div class="product-title">大疆 T50 农业植保无人机 大载重播撒 智能避障</div>
+                <div class="product-specs">
+                  <span class="spec-tag">50kg载重</span>
+                  <span class="spec-tag">全自动作业</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="price-main"><small>￥</small>54,999</div>
+                  <div class="sales-vol">已售 3.2k+</div>
+                </div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-buy-sm" onclick="event.stopPropagation(); alert('立即购买')">立即购买</button>
+                <button class="btn-cart-sm" onclick="event.stopPropagation(); alert('已加入购物车')"><i class="fa-solid fa-cart-plus"></i></button>
+              </div>
+            </div>
+            
+            <!-- 商品 3 -->
+            <div class="product-card" data-sales="860" data-price="125000" onclick="window.location.href='mall-detail.html'">
+              <div class="product-img-box">
+                <div class="badge-top-right">国补名录</div>
+                <img src="./images/g3.png" alt="收割机" class="product-img">
+              </div>
+              <div class="product-info">
+                <div class="product-title">沃得 履带式全喂入谷物联合收割机 高效低损</div>
+                <div class="product-specs">
+                  <span class="spec-tag">全喂入</span>
+                  <span class="spec-tag">谷物通用</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="price-main"><small>￥</small>125,000 </div>
+                  <div class="sales-vol">已售 860+</div>
+                </div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-buy-sm" onclick="event.stopPropagation(); alert('立即购买')">立即购买</button>
+                <button class="btn-cart-sm" onclick="event.stopPropagation(); alert('已加入购物车')"><i class="fa-solid fa-cart-plus"></i></button>
+              </div>
+            </div>
+            
+            <!-- 商品 4 -->
+            <div class="product-card" data-sales="2100" data-price="32500" onclick="window.location.href='mall-detail.html'">
+              <div class="product-img-box">
+                <div class="badge-top-right">农机直降</div>
+                <img src="./images/g4.png" alt="播种机" class="product-img">
+              </div>
+              <div class="product-info">
+                <div class="product-title">雷沃 智能气力式精量播种机 玉米大豆双用</div>
+                <div class="product-specs">
+                  <span class="spec-tag">精量播种</span>
+                  <span class="spec-tag">免耕作业</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="price-main"><small>￥</small>32,500</div>
+                  <div class="sales-vol">已售 2.1k+</div>
+                </div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-buy-sm" onclick="event.stopPropagation(); alert('立即购买')">立即购买</button>
+                <button class="btn-cart-sm" onclick="event.stopPropagation(); alert('已加入购物车')"><i class="fa-solid fa-cart-plus"></i></button>
+              </div>
+            </div>
+            
+            <!-- 商品 5 -->
+            <div class="product-card" data-sales="450" data-price="88000" onclick="window.location.href='mall-detail.html'">
+              <div class="product-img-box">
+                <div class="badge-top-right">国补名录</div>
+                <img src="./images/g5.png" alt="喷灌机" class="product-img">
+              </div>
+              <div class="product-info">
+                <div class="product-title">大型智能指针式喷灌机 全自动物联网灌溉系统</div>
+                <div class="product-specs">
+                  <span class="spec-tag">指针式</span>
+                  <span class="spec-tag">物联网APP控制</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="price-main"><small>￥</small>88,000 <span class="price-old">￥95,000</span></div>
+                  <div class="sales-vol">已售 450+</div>
+                </div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-buy-sm" onclick="event.stopPropagation(); alert('立即购买')">立即购买</button>
+                <button class="btn-cart-sm" onclick="event.stopPropagation(); alert('已加入购物车')"><i class="fa-solid fa-cart-plus"></i></button>
+              </div>
+            </div>
+            
+            <!-- 商品 6 -->
+            <div class="product-card" data-sales="5600" data-price="1200" onclick="window.location.href='mall-detail.html'">
+              <div class="product-img-box">
+                <div class="badge-top-left" style="background: #2196F3;">配件热销</div>
+                <img src="./images/g6.png" alt="配件" class="product-img">
+              </div>
+              <div class="product-info">
+                <div class="product-title">东方红拖拉机原厂保养配件套装 (机滤/柴滤/空滤)</div>
+                <div class="product-specs">
+                  <span class="spec-tag">原厂正品</span>
+                  <span class="spec-tag">适配2004/1804</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="price-main"><small>￥</small>1,200</div>
+                  <div class="sales-vol">已售 5.6k+</div>
+                </div>
+              </div>
+              <div class="product-actions">
+                <button class="btn-buy-sm" onclick="event.stopPropagation(); alert('立即购买')">立即购买</button>
+                <button class="btn-cart-sm" onclick="event.stopPropagation(); alert('已加入购物车')"><i class="fa-solid fa-cart-plus"></i></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 侧边栏菜单高亮
+    function activateMenu(element) {
+      document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    // 标签筛选排他高亮
+    function toggleTag(element) {
+      const siblings = element.parentElement.querySelectorAll('.filter-tag');
+      siblings.forEach(tag => tag.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    // 商品排序逻辑
+    const productGrid = document.getElementById('productGrid');
+    let cards = Array.from(productGrid.getElementsByClassName('product-card'));
+
+    document.querySelectorAll('.sort-item').forEach((tab, index) => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.sort-item').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+
+        const sortType = this.getAttribute('data-sort');
+        
+        cards.sort((a, b) => {
+          if (sortType === 'default') {
+            // 简单恢复初始顺序（这里通过重置数组或依赖初始DOM，我们使用一个小技巧，默认就是原DOM顺序）
+            // 在实际项目中这里应当存有 original index
+            return 0; 
+          } else if (sortType === 'sales') {
+            return parseInt(b.getAttribute('data-sales')) - parseInt(a.getAttribute('data-sales'));
+          } else if (sortType === 'priceAsc') {
+            return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+          } else if (sortType === 'priceDesc') {
+            return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
+          }
+        });
+
+        // 动画过渡重新排列
+        productGrid.style.opacity = 0;
+        setTimeout(() => {
+          productGrid.innerHTML = '';
+          cards.forEach(card => productGrid.appendChild(card));
+          productGrid.style.opacity = 1;
+        }, 300);
+      });
+    });
+    productGrid.style.transition = "opacity 0.3s ease";
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>

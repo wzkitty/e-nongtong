@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“e”农通 - 培训课程</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/course.css">
+  <link rel="stylesheet" href="css/enhance.css">
+  <link rel="stylesheet" href="css/course-player-admin.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="e农通Logo" style="height: 40px;"> “e”农通
+    </div>
+    
+    <div class="nav-links">
+      <a href="home.html" class="nav-item">首页</a>
+      <a href="course.html" class="nav-item active">培训课程</a>
+      <a href="mall.html" class="nav-item">商城</a>
+      <a href="community.html" class="nav-item">信息交流</a>
+      <a href="profile.html" class="nav-item">个人中心</a>
+    </div>
+    
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" placeholder="关键字搜索，例如：收割机教程...">
+        <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+      </div>
+      <div class="user-actions">
+        <a href="messages.html" style="text-decoration: none;">
+          <i class="fa-solid fa-bell" style="font-size: 20px; color: var(--text-secondary); margin-right: 20px; cursor: pointer;"></i>
+        </a>
+        <a href="profile.html" class="user-avatar" style="text-decoration: none; background-image: url('images/avatar.png'); background-size: cover; color: transparent;"></a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 主内容区域 -->
+  <div class="main-content">
+    
+    <div class="course-layout">
+      <!-- 左侧：高级筛选面板 (参考设计图) -->
+      <div class="filter-sidebar">
+        <div class="filter-header">
+          <span class="filter-title">筛选</span>
+          <span class="filter-clear" onclick="resetFilters()">重置</span>
+        </div>
+        
+        <!-- 类型 -->
+        <div class="filter-section">
+          <div class="section-title">类型</div>
+          <div class="type-grid">
+            <div class="type-card active" onclick="toggleType(this)">
+              <i class="fa-solid fa-book-open"></i>
+              <span>全部</span>
+            </div>
+            <div class="type-card" onclick="toggleType(this)">
+              <i class="fa-solid fa-person-chalkboard"></i>
+              <span>农机使用</span>
+            </div>
+            <div class="type-card" onclick="toggleType(this)">
+              <i class="fa-solid fa-file-contract"></i>
+              <span>技术学习</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 阶级级别 -->
+        <div class="filter-section">
+          <div class="section-title">阶级级别</div>
+          <div class="checkbox-list">
+            <label class="checkbox-item">
+              <span class="checkbox-label">初级课程</span>
+              <input type="checkbox" name="level">
+              <span class="custom-checkbox"></span>
+            </label>
+            <label class="checkbox-item">
+              <span class="checkbox-label">中级课程</span>
+              <input type="checkbox" name="level" checked>
+              <span class="custom-checkbox"></span>
+            </label>
+            <label class="checkbox-item">
+              <span class="checkbox-label">高级课程</span>
+              <input type="checkbox" name="level">
+              <span class="custom-checkbox"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 课程时间 -->
+        <div class="filter-section">
+          <div class="section-title">课程时间</div>
+          <div class="time-grid">
+            <div class="time-btn active" onclick="toggleTime(this)">全部时间</div>
+            <div class="time-btn" onclick="toggleTime(this)">本月</div>
+            <div class="time-btn" onclick="toggleTime(this)">本周</div>
+            <div class="time-btn" onclick="toggleTime(this)">今天</div>
+            <div class="time-btn" onclick="toggleTime(this)">2月前</div>
+            <div class="time-btn" onclick="toggleTime(this)">4月前</div>
+          </div>
+        </div>
+
+        <!-- 课程长度 (双滑块模拟展示) -->
+        <div class="filter-section">
+          <div class="section-title">课程长度</div>
+          <div class="range-slider">
+            <div class="range-track">
+              <div class="range-fill" style="left: 15%; right: 65%;"></div>
+            </div>
+            <div class="range-thumb left" style="left: 15%;"></div>
+            <div class="range-thumb right" style="left: 35%;"></div>
+          </div>
+          <div class="range-labels">
+            <span>15 分钟</span>
+            <span>35 分钟</span>
+          </div>
+        </div>
+
+        <div class="filter-actions">
+          <button class="btn-reset" onclick="resetFilters()">重置</button>
+          <button class="btn-confirm" onclick="applyFilters()">确定</button>
+        </div>
+      </div>
+      
+      <!-- 右侧：课程列表区 -->
+      <div class="course-main-content">
+        <div class="course-top-bar">
+          <div class="sort-tabs" id="sortTabs">
+            <span class="sort-tab active" data-sort="order">综合推荐</span>
+            <span class="sort-tab" data-sort="date">最新发布</span>
+            <span class="sort-tab" data-sort="views">最多播放</span>
+            <span class="sort-tab" data-sort="rating">评分最高</span>
+          </div>
+          <div class="result-count">共找到 <span style="color: var(--primary-color); font-weight: bold;">6</span> 门课程</div>
+        </div>
+
+        <div class="course-grid" id="courseList">
+          <!-- 课程卡片 1 -->
+          <div class="course-card" data-order="1" data-date="2026-04-10" data-views="15000" data-rating="4.9" onclick="window.location.href='course-player.html'">
+            <div class="course-img-wrapper">
+              <img src="./images/h1.png" alt="拖拉机操作" class="course-img">
+              <div class="course-badge type-machine">农机使用</div>
+              <div class="course-duration">32:15</div>
+            </div>
+            <div class="course-info">
+              <div class="course-title">新型大马力智能拖拉机操作指南</div>
+              <div class="course-instructor">
+                <img src="images/avatar2.png" alt="avatar">
+                <span>张工 (高级讲师)</span>
+              </div>
+              <div class="course-meta">
+                <span class="level-tag middle">中级</span>
+                <div class="meta-right">
+                  <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                  <span class="views"><i class="fa-solid fa-play"></i> 1.5w</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 课程卡片 2 -->
+          <div class="course-card" data-order="2" data-date="2026-04-09" data-views="32000" data-rating="5.0" onclick="window.location.href='course-player.html'">
+            <div class="course-img-wrapper">
+              <img src="./images/c2.png" alt="植保无人机" class="course-img">
+              <div class="course-badge type-machine">农机使用</div>
+              <div class="course-duration">45:00</div>
+            </div>
+            <div class="course-info">
+              <div class="course-title">植保无人机飞行考证及实操演练</div>
+              <div class="course-instructor">
+                <img src="images/avatar.png" alt="avatar">
+                <span>李教员</span>
+              </div>
+              <div class="course-meta">
+                <span class="level-tag primary">初级</span>
+                <div class="meta-right">
+                  <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
+                  <span class="views"><i class="fa-solid fa-play"></i> 3.2w</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 课程卡片 3 -->
+          <div class="course-card" data-order="3" data-date="2026-04-05" data-views="8600" data-rating="4.8" onclick="window.location.href='course-player.html'">
+            <div class="course-img-wrapper">
+              <img src="./images/c3.png" alt="收割机维修" class="course-img">
+              <div class="course-badge type-tech">技术学习</div>
+              <div class="course-duration">1:15:30</div>
+            </div>
+            <div class="course-info">
+              <div class="course-title">联合收割机常见故障排查与应急维修</div>
+              <div class="course-instructor">
+                <img src="images/avatar4.png" alt="avatar">
+                <span>王师傅</span>
+              </div>
+              <div class="course-meta">
+                <span class="level-tag high">高级</span>
+                <div class="meta-right">
+                  <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                  <span class="views"><i class="fa-solid fa-play"></i> 8.6k</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 课程卡片 4 -->
+          <div class="course-card" data-order="4" data-date="2026-04-08" data-views="21000" data-rating="4.9" onclick="window.location.href='course-player.html'">
+            <div class="course-img-wrapper">
+              <img src="./images/c4.png" alt="小麦种植" class="course-img">
+              <div class="course-badge type-tech">技术学习</div>
+              <div class="course-duration">22:10</div>
+            </div>
+            <div class="course-info">
+              <div class="course-title">冬小麦春季田间管理与病虫害防治技术</div>
+              <div class="course-instructor">
+                <img src="images/avatar4.png" alt="avatar">
+                <span>赵专家 (农科院)</span>
+              </div>
+              <div class="course-meta">
+                <span class="level-tag middle">中级</span>
+                <div class="meta-right">
+                  <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                  <span class="views"><i class="fa-solid fa-play"></i> 2.1w</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 课程卡片 5 -->
+          <div class="course-card" data-order="5" data-date="2026-04-02" data-views="11000" data-rating="4.7" onclick="window.location.href='course-player.html'">
+            <div class="course-img-wrapper">
+              <div class="course-img placeholder-img">
+                <i class="fa-solid fa-leaf" style="font-size: 40px; color: #fff; opacity: 0.8;"></i>
+              </div>
+              <div class="course-badge type-tech">技术学习</div>
+              <div class="course-duration">28:45</div>
+            </div>
+            <div class="course-info">
+              <div class="course-title">水稻机插秧技术规范与育秧要点</div>
+              <div class="course-instructor">
+                <img src="images/avatar4.png" alt="avatar">
+                <span>陈教授</span>
+              </div>
+              <div class="course-meta">
+                <span class="level-tag middle">中级</span>
+                <div class="meta-right">
+                  <span class="rating"><i class="fa-solid fa-star"></i> 4.7</span>
+                  <span class="views"><i class="fa-solid fa-play"></i> 1.1w</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 课程卡片 6 -->
+          <div class="course-card" data-order="6" data-date="2026-04-01" data-views="9200" data-rating="4.6" onclick="window.location.href='course-player.html'">
+            <div class="course-img-wrapper">
+              <img src="./images/c6.png" alt="玉米" class="course-img">
+              <div class="course-badge type-machine">农机使用</div>
+              <div class="course-duration">18:20</div>
+            </div>
+            <div class="course-info">
+              <div class="course-title">玉米精量播种机调试与田间作业规范</div>
+              <div class="course-instructor">
+                <img src="images/avatar2.png" alt="avatar">
+                <span>张工 (高级讲师)</span>
+              </div>
+              <div class="course-meta">
+                <span class="level-tag primary">初级</span>
+                <div class="meta-right">
+                  <span class="rating"><i class="fa-solid fa-star"></i> 4.6</span>
+                  <span class="views"><i class="fa-solid fa-play"></i> 9.2k</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 分页 -->
+        <div class="pagination">
+          <button class="page-btn disabled"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <span class="page-dots">...</span>
+          <button class="page-btn">12</button>
+          <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 类型单选
+    function toggleType(element) {
+      document.querySelectorAll('.type-card').forEach(card => card.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    // 时间单选
+    function toggleTime(element) {
+      document.querySelectorAll('.time-btn').forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    // 排序逻辑核心
+    const courseList = document.getElementById('courseList');
+    let cards = Array.from(courseList.getElementsByClassName('course-card'));
+
+    // 顶部排序栏点击事件
+    document.querySelectorAll('.sort-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        // 样式高亮切换
+        document.querySelectorAll('.sort-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+
+        // 获取当前排序依据
+        const sortType = this.getAttribute('data-sort');
+        
+        // 执行排序
+        cards.sort((a, b) => {
+          if (sortType === 'order') {
+            // 综合推荐：按照 data-order 升序
+            return parseInt(a.getAttribute('data-order')) - parseInt(b.getAttribute('data-order'));
+          } else if (sortType === 'date') {
+            // 最新发布：按照 data-date 降序
+            return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+          } else if (sortType === 'views') {
+            // 最多播放：按照 data-views 降序
+            return parseInt(b.getAttribute('data-views')) - parseInt(a.getAttribute('data-views'));
+          } else if (sortType === 'rating') {
+            // 评分最高：按照 data-rating 降序
+            return parseFloat(b.getAttribute('data-rating')) - parseFloat(a.getAttribute('data-rating'));
+          }
+        });
+
+        // 加入一点过渡动画让排序看起来不那么突兀
+        courseList.style.opacity = 0;
+        
+        setTimeout(() => {
+          // 清空列表并按新顺序重新插入DOM
+          courseList.innerHTML = '';
+          cards.forEach(card => courseList.appendChild(card));
+          courseList.style.opacity = 1;
+        }, 300);
+      });
+    });
+
+    // 给课程列表加一个 css transition 便于做透明度动画
+    courseList.style.transition = "opacity 0.3s ease";
+
+    // 重置筛选项
+    function resetFilters() {
+      // 重置类型
+      document.querySelectorAll('.type-card').forEach((card, index) => {
+        if(index === 0) card.classList.add('active');
+        else card.classList.remove('active');
+      });
+      // 重置阶级级别
+      document.querySelectorAll('input[name="level"]').forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      // 重置时间
+      document.querySelectorAll('.time-btn').forEach((btn, index) => {
+        if(index === 0) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+      
+      // 同时恢复综合推荐排序
+      document.querySelector('.sort-tab[data-sort="order"]').click();
+    }
+
+    // 应用筛选 (仅做交互演示)
+    function applyFilters() {
+      const btn = document.querySelector('.btn-confirm');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 筛选中';
+      setTimeout(() => {
+        btn.innerHTML = '确定';
+        alert('筛选条件已应用！');
+      }, 500);
+    }
+  </script>
+  <script src="js/app.js"></script>
+  <script src="js/course-system.js"></script>
+</body>
+</html>

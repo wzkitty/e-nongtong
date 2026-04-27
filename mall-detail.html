@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“e”农通 - 商品详情</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/mall-detail.css">
+  <link rel="stylesheet" href="css/enhance.css">
+  <link rel="stylesheet" href="css/course-player-admin.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="e农通Logo" style="height: 40px;"> “e”农通
+    </div>
+    
+    <div class="nav-links">
+      <a href="home.html" class="nav-item">首页</a>
+      <a href="course.html" class="nav-item">培训课程</a>
+      <a href="mall.html" class="nav-item active">商城</a>
+      <a href="community.html" class="nav-item">信息交流</a>
+      <a href="profile.html" class="nav-item">个人中心</a>
+    </div>
+    
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" placeholder="搜索农机、配件、品牌...">
+        <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+      </div>
+      <div class="user-actions">
+        <a href="messages.html" style="text-decoration: none;">
+          <i class="fa-solid fa-bell" style="font-size: 20px; color: var(--text-secondary); margin-right: 20px; cursor: pointer;"></i>
+        </a>
+        <a href="profile.html" class="user-avatar" style="text-decoration: none; background-image: url('images/avatar.png'); background-size: cover; color: transparent;"></a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 主内容区域 -->
+  <div class="main-content">
+    
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+      <a href="home.html"><i class="fa-solid fa-house" style="margin-right: 4px;"></i>首页</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="mall.html">农机商城</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="#">动力机械</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="#">拖拉机</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">东方红 2004 履带式拖拉机 智能导航版</span>
+    </div>
+
+    <!-- 1. 顶部商品核心区 -->
+    <div class="product-detail-container">
+      
+      <!-- 左侧大图库 -->
+      <div class="product-gallery">
+        <div class="main-image-box">
+          <div class="gallery-badge">国补名录</div>
+          <img src="./images/g1.png" alt="东方红2004拖拉机主图" class="main-image" id="mainImage">
+        </div>
+        
+        <div class="thumbnail-list" id="thumbnailList">
+          <div class="thumbnail-item active" data-src="./images/g1.png">
+            <img src="./images/g1.png" alt="缩略图1">
+          </div>
+          <div class="thumbnail-item" data-src="./images/g1-1.png">
+            <img src="./images/g1-1.png" alt="缩略图2">
+          </div>
+          <div class="thumbnail-item" data-src="./images/g1-2.png">
+            <img src="./images/g1-2.png" alt="缩略图3">
+          </div>
+        </div>
+
+        <div class="gallery-actions">
+          <span class="g-action-btn" onclick="this.classList.toggle('liked');"><i class="fa-solid fa-heart"></i> 收藏商品 (1.2k+)</span>
+          <span class="g-action-btn"><i class="fa-solid fa-share-nodes"></i> 分享海报</span>
+          <span class="g-action-btn"><i class="fa-solid fa-circle-exclamation"></i> 报错/侵权</span>
+        </div>
+      </div>
+      
+      <!-- 右侧商品信息 -->
+      <div class="product-info-panel">
+        
+        <h1 class="product-title">东方红 2004 履带式拖拉机 智能导航版 国四排放</h1>
+        <div class="product-subtitle">搭载北斗高精度智能导航，200大马力强劲动力，三角履带底盘防陷性强，水旱水田两用。送货上门，免费上门培训安装。</div>
+        
+        <!-- 价格面板 -->
+        <div class="price-panel">
+          <div class="price-row-main">
+            <span class="price-symbol">￥</span>
+            <span class="price-value">186,000</span>
+            <span class="price-origin">指导价: ￥198,000</span>
+          </div>
+          
+          <div class="price-meta">
+            <span><i class="fa-solid fa-fire" style="color:#FF5252"></i> 春耕大促正在进行中，下单立省 1.2 万元</span>
+            <span>已售: 1.5k+</span>
+          </div>
+        </div>
+        
+        <!-- 物流与服务 -->
+        <div class="info-row">
+          <div class="info-label">发货物流</div>
+          <div class="info-content">厂家直发 | 免运费 | 预计付款后 <strong>7-15天</strong> 内送达</div>
+        </div>
+        
+        <div class="info-row">
+          <div class="info-label">国家补贴</div>
+          <div class="info-content">
+            <span class="subsidy-tag">国补机型</span>
+            <span style="font-size: 13px; color: #666; margin-left: 8px;">购买后可申请国家农机购置补贴，最高约 <strong style="color: #E53935">3.5万元</strong> (以当地政策为准)</span>
+          </div>
+        </div>
+
+        <div class="info-row" style="align-items: center;">
+          <div class="info-label">服务保障</div>
+          <div class="info-content service-tags">
+            <span class="service-tag"><i class="fa-solid fa-circle-check"></i>正品保证</span>
+            <span class="service-tag"><i class="fa-solid fa-screwdriver-wrench"></i>全国联保</span>
+            <span class="service-tag"><i class="fa-solid fa-truck-fast"></i>送货上门</span>
+            <span class="service-tag"><i class="fa-solid fa-chalkboard-user"></i>上门培训</span>
+            <span class="service-tag"><i class="fa-solid fa-file-invoice-dollar"></i>协助上牌</span>
+          </div>
+        </div>
+
+        <div class="sku-selector">
+          <div class="sku-group">
+            <div class="sku-label">马力配置</div>
+            <div class="sku-options" id="sku-power">
+              <button class="sku-btn">180马力基础版</button>
+              <button class="sku-btn active">200马力尊享版</button>
+              <button class="sku-btn">220马力旗舰版</button>
+            </div>
+          </div>
+          <div class="sku-group">
+            <div class="sku-label">导航系统</div>
+            <div class="sku-options" id="sku-nav">
+              <button class="sku-btn">不带导航</button>
+              <button class="sku-btn active">标配北斗导航</button>
+              <button class="sku-btn">大疆高精度 RTK 系统</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="qty-selector">
+          <div class="info-label">购买数量</div>
+          <div class="qty-control">
+            <button class="qty-btn" id="btn-minus">-</button>
+            <input type="text" class="qty-input" id="input-qty" value="1">
+            <button class="qty-btn" id="btn-plus">+</button>
+          </div>
+          <span class="qty-stock">库存充足，放心购买</span>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn-contact" onclick="window.location.href='messages.html'">
+            <i class="fa-regular fa-comment-dots"></i>
+            <span>联系客服</span>
+          </button>
+          <button class="btn-add-cart" onclick="alert('已成功加入购物车！')"><i class="fa-solid fa-cart-plus" style="margin-right: 8px;"></i>加入购物车</button>
+          <button class="btn-buy-now" onclick="alert('即将跳转到订单结算确认页...')">立即购买</button>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="detail-layout">
+      
+      <div class="detail-main">
+        <div class="detail-tabs" id="detailTabs">
+          <div class="d-tab active">图文详情</div>
+          <div class="d-tab">规格参数</div>
+          <div class="d-tab">包装与售后</div>
+          <div class="d-tab">用户评价 <span style="color: #999; font-size: 13px;">(328)</span></div>
+        </div>
+
+        <div class="detail-content rich-text" id="tabContent">
+          
+          <h3><i class="fa-solid fa-microchip"></i> 核心亮点展示</h3>
+          <p>全新的东方红2004履带式拖拉机，专为复杂地形和大规模农业生产设计。采用了全新升级的<strong>国四排放标准发动机</strong>，不仅马力强劲、扭矩储备大，而且在节能环保方面表现出色。无论您是深松、翻耕还是平整土地，它都能轻松应对，提供源源不断的动力支持。</p>
+          <img src="./images/g1-d.png" alt="拖拉机田间作业图">
+          
+          <h3><i class="fa-solid fa-satellite-dish"></i> 智能北斗导航，解放双手</h3>
+          <p>标配中国自主研发的北斗高精度导航自动驾驶系统。支持直线、曲线、斜线等多种自动驾驶模式，作业精度高达 <strong>±2.5cm</strong>。这不仅能有效避免漏耕和重耕，大幅提升土地和种子的利用率，还能极大地降低驾驶员的疲劳强度。是实现精准农业、智慧农耕的得力助手，让您在驾驶舱内也能运筹帷幄。</p>
+          
+          <h3><i class="fa-solid fa-list-ul"></i> 详细规格参数</h3>
+          <table class="spec-table">
+            <tbody>
+              <tr>
+                <td class="label">品牌 / 型号</td>
+                <td class="value">东方红 / 2004 履带式</td>
+              </tr>
+              <tr>
+                <td class="label">发动机额定功率</td>
+                <td class="value">200马力 (147kW) 国四排放标准</td>
+              </tr>
+              <tr>
+                <td class="label">整机重量 (kg)</td>
+                <td class="value">7800 kg</td>
+              </tr>
+              <tr>
+                <td class="label">履带规格 (宽x节距x节数)</td>
+                <td class="value">450 x 90 x 53</td>
+              </tr>
+              <tr>
+                <td class="label">履带接地长度</td>
+                <td class="value">2650 mm</td>
+              </tr>
+              <tr>
+                <td class="label">挡位数量</td>
+                <td class="value">前进16挡，后退8挡 (同步器顺畅换挡)</td>
+              </tr>
+              <tr>
+                <td class="label">动力输出轴转速</td>
+                <td class="value">双速：760 / 1000 r/min</td>
+              </tr>
+              <tr>
+                <td class="label">驾驶室配置</td>
+                <td class="value">全封闭防尘、冷暖空调、气浮座椅、环绕立体声音响</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      
+      <!-- 右侧：店铺推荐栏 -->
+      <div class="detail-sidebar">
+        
+        <!-- 店铺卡片 -->
+        <div class="store-card">
+          <div class="store-header">
+            <div class="store-logo">
+              <i class="fa-solid fa-shop"></i>
+            </div>
+            <div class="store-info">
+              <h4>东方红官方旗舰店</h4>
+              <span class="store-tag">品牌直营</span>
+            </div>
+          </div>
+          
+          <div class="store-scores">
+            <div class="score-item">
+              <span class="score-label">商品描述</span>
+              <span class="score-value">4.9 <i class="fa-solid fa-arrow-up" style="font-size: 10px;"></i></span>
+            </div>
+            <div class="score-item">
+              <span class="score-label">发货速度</span>
+              <span class="score-value">4.8 <i class="fa-solid fa-arrow-up" style="font-size: 10px;"></i></span>
+            </div>
+            <div class="score-item">
+              <span class="score-label">售后服务</span>
+              <span class="score-value">4.9 <i class="fa-solid fa-arrow-up" style="font-size: 10px;"></i></span>
+            </div>
+          </div>
+          
+          <div class="store-actions">
+            <button class="btn-store btn-store-follow" onclick="alert('关注成功！')"><i class="fa-solid fa-plus" style="margin-right: 4px;"></i>关注店铺</button>
+            <button class="btn-store btn-store-enter" onclick="window.location.href='mall.html'">进店逛逛</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 缩略图切换主图逻辑
+    const mainImg = document.getElementById('mainImage');
+    document.querySelectorAll('.thumbnail-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        // 移除其他高亮
+        document.querySelectorAll('.thumbnail-item').forEach(i => i.classList.remove('active'));
+        // 添加当前高亮
+        this.classList.add('active');
+        // 替换主图SRC
+        mainImg.src = this.getAttribute('data-src');
+      });
+    });
+
+    // SKU 单选交互
+    function setupSku(groupId) {
+      const btns = document.querySelectorAll(`#${groupId} .sku-btn`);
+      btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          btns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    }
+    setupSku('sku-power');
+    setupSku('sku-nav');
+
+    // 数量加减交互
+    const inputQty = document.getElementById('input-qty');
+    document.getElementById('btn-minus').addEventListener('click', () => {
+      let val = parseInt(inputQty.value) || 1;
+      if (val > 1) inputQty.value = val - 1;
+    });
+    document.getElementById('btn-plus').addEventListener('click', () => {
+      let val = parseInt(inputQty.value) || 1;
+      inputQty.value = val + 1;
+    });
+    // 限制只能输入数字
+    inputQty.addEventListener('input', function() {
+      this.value = this.value.replace(/[^0-9]/g, '');
+      if(this.value === '' || parseInt(this.value) < 1) this.value = '1';
+    });
+
+    // 详情底部Tab切换 (仅UI交互展示)
+    const tabs = document.querySelectorAll('.d-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        // 实际开发中这里会切换显示不同的div内容，演示中仅做状态切换
+      });
+    });
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>

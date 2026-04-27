@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“e”农通 - 消息中心</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/messages.css">
+  <link rel="stylesheet" href="css/enhance.css">
+  <link rel="stylesheet" href="css/course-player-admin.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="e农通Logo" style="height: 40px;"> “e”农通
+    </div>
+    
+    <div class="nav-links">
+      <a href="home.html" class="nav-item">首页</a>
+      <a href="course.html" class="nav-item">培训课程</a>
+      <a href="mall.html" class="nav-item">商城</a>
+      <a href="community.html" class="nav-item">信息交流</a>
+      <a href="profile.html" class="nav-item">个人中心</a>
+    </div>
+    
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" placeholder="搜索消息记录、联系人...">
+        <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+      </div>
+      <div class="user-actions">
+        <a href="messages.html" style="text-decoration: none;">
+          <i class="fa-solid fa-bell" style="font-size: 20px; color: var(--primary-color); margin-right: 20px; cursor: pointer;"></i>
+        </a>
+        <a href="profile.html" class="user-avatar" style="text-decoration: none; background-image: url('images/avatar.png'); background-size: cover;"></a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 主内容区域 -->
+  <div class="main-content">
+    <div class="messages-container">
+      
+      <!-- 左侧分类导航 -->
+      <div class="msg-sidebar">
+        <div class="msg-menu-title">消息中心</div>
+        <ul class="msg-menu">
+          <li class="msg-menu-item active" onclick="switchMsgTab('interaction', this)">
+            <div class="msg-menu-left">
+              <i class="fa-solid fa-heart" style="color: #FF4081;"></i> 
+              <span>互动消息</span>
+            </div>
+            <span class="msg-badge">3</span>
+          </li>
+          <li class="msg-menu-item" onclick="switchMsgTab('chat', this)">
+            <div class="msg-menu-left">
+              <i class="fa-solid fa-comment-dots" style="color: #4CAF50;"></i> 
+              <span>私信聊天</span>
+            </div>
+            <span class="msg-badge green">1</span>
+          </li>
+          <li class="msg-menu-item" onclick="switchMsgTab('system', this)">
+            <div class="msg-menu-left">
+              <i class="fa-solid fa-bullhorn" style="color: #2196F3;"></i> 
+              <span>系统通知</span>
+            </div>
+          </li>
+          <li class="msg-menu-item" onclick="switchMsgTab('hot', this)">
+            <div class="msg-menu-left">
+              <i class="fa-solid fa-fire" style="color: #FF9800;"></i> 
+              <span>热门讨论</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 右侧内容区 -->
+      <div class="msg-content-area">
+        
+        <!-- 1. 互动消息面板 -->
+        <div id="interaction" class="msg-tab-content active">
+          <div class="msg-header">
+            <div class="interaction-tabs">
+              <div class="int-tab active">全部互动</div>
+              <div class="int-tab">收到的赞</div>
+              <div class="int-tab">评论和@</div>
+              <div class="int-tab">新增粉丝</div>
+            </div>
+            <span class="btn-read-all" onclick="alert('已全部标记为已读')"><i class="fa-solid fa-check-double"></i> 全部已读</span>
+          </div>
+          
+          <div class="msg-list">
+            <!-- 互动项 1 -->
+            <div class="msg-item">
+              <div class="msg-avatar" style="background-image: url('images/avatar2.png');"></div>
+              <div class="msg-body">
+                <div class="msg-top">
+                  <span class="msg-name">老张种粮</span>
+                  <span class="msg-time">10分钟前</span>
+                </div>
+                <div class="msg-desc">
+                  <span class="msg-action-text">赞了你的动态</span>
+                  <i class="fa-solid fa-thumbs-up" style="color: #FF5252;"></i>
+                </div>
+                <div class="msg-target">新入手的这台大疆T50植保无人机确实好用，今天试着喷了50亩麦地...</div>
+              </div>
+            </div>
+
+            <!-- 互动项 2 -->
+            <div class="msg-item">
+              <div class="msg-avatar" style="background-image: url('images/avatar4.png');"></div>
+              <div class="msg-body">
+                <div class="msg-top">
+                  <span class="msg-name">农机维修李师傅 <i class="fa-solid fa-circle-check" style="color: #2196F3; font-size: 12px;"></i></span>
+                  <span class="msg-time">2小时前</span>
+                </div>
+                <div class="msg-desc">
+                  <span class="msg-action-text">在动态下评论了你：</span>
+                  <span style="color: var(--text-primary);">"电池一定要注意不要过充过放，冬天存放要保证50%左右的电量哦！"</span>
+                </div>
+                <div class="msg-target">想问问群里的兄弟，这机器日常电池保养有什么需要注意的吗？听说充放电...</div>
+              </div>
+            </div>
+
+            <!-- 互动项 3 -->
+            <div class="msg-item">
+              <div class="msg-avatar" style="background-image: url('images/avatar3.png');"></div>
+              <div class="msg-body">
+                <div class="msg-top">
+                  <span class="msg-name">王大川</span>
+                  <span class="msg-time">昨天 15:30</span>
+                </div>
+                <div class="msg-desc">
+                  <span class="msg-action-text">关注了你，成为你的新粉丝</span>
+                  <i class="fa-solid fa-user-plus" style="color: #4CAF50;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 私信聊天面板 -->
+        <div id="chat" class="msg-tab-content">
+          <div class="chat-layout">
+            
+            <!-- 聊天会话列表 -->
+            <div class="chat-list-col">
+              <div class="chat-list-header">
+                <input type="text" class="chat-search" placeholder="搜索联系人...">
+              </div>
+              <div class="chat-sessions">
+                
+                <div class="chat-session active">
+                  <div class="chat-session-avatar">
+                    <img src="images/avatar.png" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    <div class="unread-dot"></div>
+                  </div>
+                  <div class="chat-session-info">
+                    <div class="cs-top">
+                      <span class="cs-name">农机维修李师傅</span>
+                      <span class="cs-time">10:45</span>
+                    </div>
+                    <div class="cs-msg">不客气，有问题随时找我。</div>
+                  </div>
+                </div>
+
+                <div class="chat-session">
+                  <div class="chat-session-avatar">
+                    <img src="images/avatar2.png" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                  </div>
+                  <div class="chat-session-info">
+                    <div class="cs-top">
+                      <span class="cs-name">客服小微</span>
+                      <span class="cs-time">昨天</span>
+                    </div>
+                    <div class="cs-msg">您的订单已经发货，请注意查收。</div>
+                  </div>
+                </div>
+                
+                <div class="chat-session">
+                  <div class="chat-session-avatar" style="background-image: url('images/avatar3.png'); background-size: cover;"></div>
+                  <div class="chat-session-info">
+                    <div class="cs-top">
+                      <span class="cs-name">王大川</span>
+                      <span class="cs-time">周一</span>
+                    </div>
+                    <div class="cs-msg">张伯，你那个打药机效果怎么样？</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 聊天窗口 -->
+            <div class="chat-window-col">
+              <div class="chat-window-header">
+                <div class="cw-title">与 <span style="color: var(--primary-color);">农机维修李师傅</span> 的聊天</div>
+                <div class="cw-actions">
+                  <i class="fa-solid fa-phone"></i>
+                  <i class="fa-solid fa-video"></i>
+                  <i class="fa-solid fa-ellipsis"></i>
+                </div>
+              </div>
+              
+              <div class="chat-history">
+                
+                <div class="chat-bubble-wrap mine">
+                  <div class="cb-avatar" style="background-image: url('images/avatar3.png'); background-size: cover; color: transparent;"></div>
+                  <div class="cb-content">
+                    李师傅，感谢您在评论区的指导。我还有一个问题，就是关于那个拖拉机的滤清器，多久需要更换一次呢？
+                  </div>
+                </div>
+                
+                <div class="chat-bubble-wrap other">
+                  <div class="cb-avatar" style="background-image: url('images/avatar3.png'); color: transparent;"></div>
+                  <div class="cb-content">
+                    如果是干农活粉尘比较大的话，建议每工作250小时左右更换一次空气滤清器的主滤芯，机油滤清器也是这个频率。当然也要看具体的作业环境，灰尘太大的话要提前换。
+                  </div>
+                </div>
+                
+                <div class="chat-bubble-wrap mine">
+                  <div class="cb-avatar" style="background-image: url('images/avatar.png'); background-size: cover; color: transparent;"></div>
+                  <div class="cb-content">
+                    好的，我记下了。谢谢师傅！
+                  </div>
+                </div>
+                
+                <div class="chat-bubble-wrap other">
+                  <div class="cb-avatar" style="background-image: url('images/avatar.png'); color: transparent;"></div>
+                  <div class="cb-content">
+                    不客气，有问题随时找我。
+                  </div>
+                </div>
+                
+              </div>
+              
+              <div class="chat-input-area">
+                <div class="chat-tools">
+                  <i class="fa-regular fa-image" title="发送图片"></i>
+                  <i class="fa-regular fa-folder-open" title="发送文件"></i>
+                  <i class="fa-regular fa-face-smile" title="发送表情"></i>
+                </div>
+                <div class="chat-input-box">
+                  <textarea class="chat-textarea" placeholder="输入聊天内容... (Enter发送)"></textarea>
+                  <div class="chat-send-row">
+                    <span class="chat-send-hint">按 Enter 发送，Shift+Enter 换行</span>
+                    <button class="btn-send">发送消息</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- 3. 系统通知面板 -->
+        <div id="system" class="msg-tab-content">
+          <div class="msg-header">
+            <h3>系统通知</h3>
+            <span class="btn-read-all" onclick="alert('已全部标记为已读')"><i class="fa-solid fa-check-double"></i> 全部已读</span>
+          </div>
+          
+          <div class="msg-list">
+            <div class="msg-item">
+              <div class="sys-icon"><i class="fa-solid fa-bell"></i></div>
+              <div class="msg-body">
+                <div class="msg-top">
+                  <span class="msg-name">平台官方助理</span>
+                  <span class="msg-time">今天 09:00</span>
+                </div>
+                <div class="msg-desc">您的「认证种植户」审核已通过！现在您可以享受专属客服和更多平台特权服务。</div>
+              </div>
+            </div>
+            
+            <div class="msg-item">
+              <div class="sys-icon" style="background-color: rgba(76, 175, 80, 0.1); color: #4CAF50;"><i class="fa-solid fa-box-open"></i></div>
+              <div class="msg-body">
+                <div class="msg-top">
+                  <span class="msg-name">订单交易助手</span>
+                  <span class="msg-time">昨天 14:20</span>
+                </div>
+                <div class="msg-desc">
+                  您的订单 <span style="color: var(--primary-color); cursor: pointer;">DD2026041000123</span> 状态更新：【郑州市】已到达 郑州中转中心，预计明天为您送达。
+                </div>
+              </div>
+            </div>
+            
+            <div class="msg-item">
+              <div class="sys-icon" style="background-color: rgba(255, 152, 0, 0.1); color: #FF9800;"><i class="fa-solid fa-gift"></i></div>
+              <div class="msg-body">
+                <div class="msg-top">
+                  <span class="msg-name">活动福利小喇叭</span>
+                  <span class="msg-time">3天前</span>
+                </div>
+                <div class="msg-desc">
+                  🌱 春耕备耕特惠活动已开启！大型农机最高直降 3.5万元，农机配件低至 8 折，快来看看吧。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 热门讨论面板 -->
+        <div id="hot" class="msg-tab-content">
+          <div class="msg-header">
+            <h3>热门讨论推送</h3>
+          </div>
+          
+          <div class="msg-list">
+            <div class="msg-item">
+              <div class="hot-icon"><i class="fa-solid fa-fire"></i></div>
+              <div class="msg-body">
+                <div class="msg-top">
+                  <span class="msg-name">#春耕备耕经验谈#</span>
+                  <span class="msg-time">刚刚更新</span>
+                </div>
+                <div class="msg-desc">当前已有 <span style="color: #FF5252; font-weight: bold;">2.1w</span> 人参与讨论该话题！快来看看大家都在准备什么吧。</div>
+                <div class="msg-target">来自农科院的赵专家刚刚发布了《2026年春季田间水肥管理指南》，干货满满！点击查看详情...</div>
+              </div>
+            </div>
+            
+            <div class="msg-item">
+              <div class="hot-icon"><i class="fa-solid fa-bullhorn" style="font-size: 18px;"></i></div>
+              <div class="msg-body">
+                <div class="msg-top">
+                  <span class="msg-name">#国家农机补贴最新政策#</span>
+                  <span class="msg-time">今天 08:30</span>
+                </div>
+                <div class="msg-desc">大家都在关注：2026年最新农机补贴政策解读，附详细申请流程和目录清单。</div>
+                <div class="msg-target">平台汇总了今年各地新增的植保无人机补贴名额，请各位农友及时提交申报材料...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 侧边栏和内容面板切换逻辑
+    function switchMsgTab(tabId, element) {
+      // 1. 激活侧边栏高亮
+      document.querySelectorAll('.msg-menu-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      element.classList.add('active');
+      
+      // 2. 隐藏所有面板并显示对应的面板
+      document.querySelectorAll('.msg-tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      const targetContent = document.getElementById(tabId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+    }
+
+    // 互动面板顶部小 Tab 切换高亮（纯UI效果）
+    document.querySelectorAll('.int-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.int-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // 聊天会话列表切换高亮（纯UI效果）
+    document.querySelectorAll('.chat-session').forEach(session => {
+      session.addEventListener('click', function() {
+        document.querySelectorAll('.chat-session').forEach(s => s.classList.remove('active'));
+        this.classList.add('active');
+        // 移除未读红点
+        const dot = this.querySelector('.unread-dot');
+        if(dot) dot.remove();
+      });
+    });
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>

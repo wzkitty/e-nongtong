@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“e”农通 - 信息交流</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/community.css">
+  <link rel="stylesheet" href="css/enhance.css">
+  <link rel="stylesheet" href="css/course-player-admin.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="e农通Logo" style="height: 40px;"> “e”农通
+    </div>
+    
+    <div class="nav-links">
+      <a href="home.html" class="nav-item">首页</a>
+      <a href="course.html" class="nav-item">培训课程</a>
+      <a href="mall.html" class="nav-item">商城</a>
+      <a href="community.html" class="nav-item active">信息交流</a>
+      <a href="profile.html" class="nav-item">个人中心</a>
+    </div>
+    
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" placeholder="搜索动态、用户、话题...">
+        <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+      </div>
+      <div class="user-actions">
+        <a href="messages.html" style="text-decoration: none;">
+          <i class="fa-solid fa-bell" style="font-size: 20px; color: var(--text-secondary); margin-right: 20px; cursor: pointer;"></i>
+        </a>
+        <a href="profile.html" class="user-avatar" style="text-decoration: none; background-image: url('images/avatar.png'); background-size: cover; color: transparent;"></a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 主内容区域 (三栏布局) -->
+  <div class="main-content">
+    <div class="community-container">
+      
+      <!-- 1. 左侧导航区 -->
+      <div class="community-nav">
+        <div class="nav-menu">
+          <div class="nav-menu-item active">
+            <i class="fa-solid fa-fire"></i>
+            <span>综合推荐</span>
+          </div>
+          <div class="nav-menu-item">
+            <i class="fa-solid fa-tractor"></i>
+            <span>农机交流</span>
+          </div>
+          <div class="nav-menu-item">
+            <i class="fa-solid fa-seedling"></i>
+            <span>种植经验</span>
+          </div>
+          <div class="nav-menu-item">
+            <i class="fa-solid fa-cloud-sun-rain"></i>
+            <span>气象防灾</span>
+          </div>
+          <div class="nav-menu-item">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>政策补贴</span>
+          </div>
+          <div class="nav-menu-item">
+            <i class="fa-solid fa-wrench"></i>
+            <span>维修求助</span>
+          </div>
+        </div>
+        <button class="btn-publish-large" onclick="document.querySelector('.publish-input').focus()">
+          <i class="fa-solid fa-pen-nib" style="margin-right: 6px;"></i> 发动态
+        </button>
+      </div>
+
+      <!-- 2. 中间动态流 -->
+      <div class="community-main">
+        
+        <!-- 发帖输入框 -->
+        <div class="publish-box">
+          <div class="publish-header">
+            <div class="publish-avatar" style="background-image: url('images/avatar3.png'); background-size: cover; color: transparent;"></div>
+            <div class="publish-input-wrap">
+              <textarea class="publish-input" placeholder="分享您的农机使用心得、田间趣事，或者向大家提问..."></textarea>
+            </div>
+          </div>
+          <div class="publish-toolbar">
+            <div class="tools-left">
+              <div class="tool-btn"><i class="fa-regular fa-image" style="color: #4CAF50"></i> 图片/视频</div>
+              <div class="tool-btn"><i class="fa-solid fa-hashtag" style="color: #2196F3"></i> 话题</div>
+              <div class="tool-btn"><i class="fa-solid fa-location-dot" style="color: #FF9800"></i> 定位</div>
+            </div>
+            <button class="btn btn-primary" style="padding: 8px 24px; border-radius: 20px;">发布</button>
+          </div>
+        </div>
+
+        <!-- 动态筛选 -->
+        <div class="feed-filter">
+          <span class="filter-tab active">最新推荐</span>
+          <span class="filter-tab">关注的人</span>
+          <span class="filter-tab">我的附近</span>
+        </div>
+
+        <!-- 动态列表 -->
+        <div class="feed-list">
+          
+          <!-- 卡片1：带单图的提问 -->
+          <div class="feed-card">
+            <div class="feed-user">
+              <div class="user-info-left">
+                <img src="images/avatar.png" alt="Avatar" class="user-avatar">
+                <div class="user-meta">
+                  <div class="user-name">
+                    老张种粮 <span class="user-badge badge-farmer">种植大户</span>
+                  </div>
+                  <div class="user-time">1小时前 · 来自 山东</div>
+                </div>
+              </div>
+              <button class="btn-follow">+ 关注</button>
+            </div>
+            <div class="feed-text">
+              <span class="hashtag">#农机心得#</span>新入手的这台大疆T50植保无人机确实好用，今天试着喷了50亩麦地，效率比以前人工高太多了，而且喷洒均匀。<br><br>想问问群里的兄弟，这机器日常电池保养有什么需要注意的吗？听说充放电循环有讲究？
+            </div>
+            <div class="feed-gallery grid-1">
+              <img src="./images/djzb.png" alt="动态配图">
+            </div>
+            <div class="feed-actions">
+              <div class="action-item"><i class="fa-regular fa-share-square"></i> 12</div>
+              <div class="action-item"><i class="fa-regular fa-comment"></i> 45</div>
+              <div class="action-item action-like"><i class="fa-regular fa-thumbs-up"></i> 128</div>
+            </div>
+          </div>
+
+          <!-- 卡片2：纯文本经验分享 -->
+          <div class="feed-card">
+            <div class="feed-user">
+              <div class="user-info-left">
+                <img src="images/avatar.png" alt="Avatar" class="user-avatar">
+                <div class="user-meta">
+                  <div class="user-name">
+                    农机维修李师傅 <span class="user-badge badge-expert">认证技师 <i class="fa-solid fa-circle-check" style="font-size: 10px;"></i></span>
+                  </div>
+                  <div class="user-time">3小时前 · 来自 河南</div>
+                </div>
+              </div>
+              <button class="btn-follow">+ 关注</button>
+            </div>
+            <div class="feed-text">
+              <span class="hashtag">#经验分享#</span> <span class="hashtag">#拖拉机维修#</span><br>
+              春耕快到了，很多师傅的拖拉机放了一冬没动，现在启动前一定要注意以下几点：<br><br>
+              1. 检查机油和防冻液液位是否正常；<br>
+              2. 检查电瓶电量，接线柱是否松动氧化（特别是负极搭铁）；<br>
+              3. 燃油滤清器最好换个新的，防止冬季有水分凝结结冰损坏油泵；<br>
+              4. 启动前先手动泵油排空气。<br><br>
+              大家遇到什么无法启动的故障，可以在评论区留言带上机型，我免费帮忙解答！
+            </div>
+            <div class="feed-actions">
+              <div class="action-item"><i class="fa-regular fa-share-square"></i> 86</div>
+              <div class="action-item"><i class="fa-regular fa-comment"></i> 32</div>
+              <div class="action-item action-like liked"><i class="fa-solid fa-thumbs-up"></i> 350</div>
+            </div>
+          </div>
+
+          <!-- 卡片3：多图展示 -->
+          <div class="feed-card">
+            <div class="feed-user">
+              <div class="user-info-left">
+                <img src="images/avatar.png" alt="Avatar" class="user-avatar">
+                <div class="user-meta">
+                  <div class="user-name">王大锤的农场</div>
+                  <div class="user-time">昨天 15:30 · 来自 黑龙江</div>
+                </div>
+              </div>
+              <button class="btn-follow">+ 关注</button>
+            </div>
+            <div class="feed-text">
+              <span class="hashtag">#大型农机#</span> 今年新进的东方红2004履带拖拉机到了，霸气外露！<br>
+              履带式的防陷效果确实好，这几天地里化雪全是泥，轮式的早趴窝了，履带跑得飞快。给大家发几张开箱图过过瘾！
+            </div>
+            <div class="feed-gallery grid-more">
+              <img src="./images/g1.png" alt="图1">
+              <img src="./images/g1-1.png" alt="图2">
+              <img src="./images/g1-2.png" alt="图3">
+            </div>
+            <div class="feed-actions">
+              <div class="action-item"><i class="fa-regular fa-share-square"></i> 24</div>
+              <div class="action-item"><i class="fa-regular fa-comment"></i> 56</div>
+              <div class="action-item action-like"><i class="fa-regular fa-thumbs-up"></i> 89</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 3. 右侧边栏 (热门话题/推荐专家) -->
+      <div class="community-sidebar">
+        
+        <!-- 热门话题 -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">
+            <span><i class="fa-solid fa-arrow-trend-up" style="color: #FF5252; margin-right: 8px;"></i>热门话题榜</span>
+            <span class="more">查看全部</span>
+          </div>
+          <div class="hot-topic-list">
+            <div class="topic-item">
+              <div class="topic-left">
+                <span class="topic-rank top-1">1</span>
+                <span class="topic-name">#春耕备耕经验谈#</span>
+              </div>
+              <span class="topic-hotness">2.1w 热度</span>
+            </div>
+            <div class="topic-item">
+              <div class="topic-left">
+                <span class="topic-rank top-2">2</span>
+                <span class="topic-name">#国家农机补贴最新政策#</span>
+              </div>
+              <span class="topic-hotness">1.8w 热度</span>
+            </div>
+            <div class="topic-item">
+              <div class="topic-left">
+                <span class="topic-rank top-3">3</span>
+                <span class="topic-name">#植保无人机实操教程#</span>
+              </div>
+              <span class="topic-hotness">1.2w 热度</span>
+            </div>
+            <div class="topic-item">
+              <div class="topic-left">
+                <span class="topic-rank">4</span>
+                <span class="topic-name">#拖拉机常见故障排除#</span>
+              </div>
+              <span class="topic-hotness">9800 热度</span>
+            </div>
+            <div class="topic-item">
+              <div class="topic-left">
+                <span class="topic-rank">5</span>
+                <span class="topic-name">#大疆T50使用心得#</span>
+              </div>
+              <span class="topic-hotness">7500 热度</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 推荐专家 -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">
+            <span><i class="fa-solid fa-user-check" style="color: #4CAF50; margin-right: 8px;"></i>推荐专家与技师</span>
+            <span class="more">换一换</span>
+          </div>
+          <div class="expert-list">
+            <div class="expert-item">
+              <img src="images/avatar4.png" alt="Avatar" class="expert-avatar">
+              <div class="expert-info">
+                <div class="expert-name">赵教授 <i class="fa-solid fa-circle-check" style="color: #2196F3; font-size: 12px;"></i></div>
+                <div class="expert-desc">省农科院植保所研究员</div>
+              </div>
+              <button class="btn-follow-sm">关注</button>
+            </div>
+            <div class="expert-item">
+              <img src="images/avatar.png" alt="Avatar" class="expert-avatar">
+              <div class="expert-info">
+                <div class="expert-name">王工 <i class="fa-solid fa-circle-check" style="color: #2196F3; font-size: 12px;"></i></div>
+                <div class="expert-desc">高级农机维修师，从业15年</div>
+              </div>
+              <button class="btn-follow-sm">关注</button>
+            </div>
+            <div class="expert-item">
+              <img src="images/avatar.png" alt="Avatar" class="expert-avatar">
+              <div class="expert-info">
+                <div class="expert-name">李站长 <i class="fa-solid fa-circle-check" style="color: #2196F3; font-size: 12px;"></i></div>
+                <div class="expert-desc">基层农业技术推广站站长</div>
+              </div>
+              <button class="btn-follow-sm">关注</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // 点赞动态交互
+    document.querySelectorAll('.action-like').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        // 解析当前数字
+        let countNode = this.childNodes[1]; 
+        // 简单处理逻辑，真实情况数字可能是独立的span
+        let text = this.innerText.trim();
+        let count = parseInt(text) || 0;
+
+        if (this.classList.contains('liked')) {
+          this.classList.remove('liked');
+          icon.classList.replace('fa-solid', 'fa-regular');
+          this.innerHTML = `<i class="fa-regular fa-thumbs-up"></i> ${count - 1}`;
+        } else {
+          this.classList.add('liked');
+          icon.classList.replace('fa-regular', 'fa-solid');
+          this.innerHTML = `<i class="fa-solid fa-thumbs-up"></i> ${count + 1}`;
+        }
+      });
+    });
+
+    // 左侧导航高亮切换
+    document.querySelectorAll('.nav-menu-item').forEach(item => {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.nav-menu-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // 顶部Filter切换
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>

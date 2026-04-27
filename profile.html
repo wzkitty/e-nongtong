@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“e”农通 - 个人中心</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/enhance.css">
+  <link rel="stylesheet" href="css/course-player-admin.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="e农通Logo" style="height: 40px;"> “e”农通
+    </div>
+    
+    <div class="nav-links">
+      <a href="home.html" class="nav-item">首页</a>
+      <a href="course.html" class="nav-item">培训课程</a>
+      <a href="mall.html" class="nav-item">商城</a>
+      <a href="community.html" class="nav-item">信息交流</a>
+      <a href="profile.html" class="nav-item active">个人中心</a>
+    </div>
+    
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" placeholder="搜索订单、设备、课程...">
+        <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+      </div>
+      <div class="user-actions">
+        <a href="messages.html" style="text-decoration: none;">
+          <i class="fa-solid fa-bell" style="font-size: 20px; color: var(--text-secondary); margin-right: 20px; cursor: pointer;"></i>
+        </a>
+        <a href="profile.html" class="user-avatar" style="text-decoration: none; background-image: url('images/avatar.png'); background-size: cover; color: transparent;"></a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 主内容区域 -->
+  <div class="main-content">
+    <div class="profile-container">
+      
+      <!-- 1. 顶部用户卡片 (Hero) -->
+      <div class="profile-hero">
+        <div class="hero-user-info">
+          <div class="hero-avatar" style="background-image: url('images/avatar.png'); background-size: cover;"></div>
+          <div class="hero-details">
+            <div class="hero-name-row">
+              <span class="hero-name">老张种粮</span>
+              <span class="hero-badge"><i class="fa-solid fa-medal"></i> 认证种植大户</span>
+            </div>
+            <div class="hero-bio">
+              <span><i class="fa-solid fa-location-dot"></i> 山东省 济南市</span>
+              <span><i class="fa-regular fa-calendar-days"></i> 加入 e农通 865 天</span>
+              <span><i class="fa-solid fa-signature"></i> 个人简介：承包了500亩地，热爱尝试各种新型农机。</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">128</span>
+            <span class="stat-label">关注</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">1.5w</span>
+            <span class="stat-label">粉丝</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">3.2w</span>
+            <span class="stat-label">获赞</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 主体分栏 -->
+      <div class="profile-main">
+        
+        <!-- 左侧菜单栏 -->
+        <div class="profile-sidebar">
+          
+          <div class="menu-group">
+            <div class="menu-title">内容管理</div>
+            <div class="menu-item active" onclick="switchTab('my-courses', this)">
+              <i class="fa-solid fa-book-open"></i> 历史观看课程
+            </div>
+            <div class="menu-item" onclick="switchTab('my-posts', this)">
+              <i class="fa-solid fa-pen-to-square"></i> 我的发帖 (2)
+            </div>
+            <div class="menu-item" onclick="switchTab('my-favorites', this)">
+              <i class="fa-solid fa-star"></i> 收藏与点赞
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-title">资产与服务</div>
+            <div class="menu-item" onclick="switchTab('my-orders', this)">
+              <i class="fa-solid fa-clipboard-list"></i> 我的订单/物流
+            </div>
+            <div class="menu-item" onclick="switchTab('my-devices', this)">
+              <i class="fa-solid fa-tractor"></i> 我的设备 (2)
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-title">账号与设置</div>
+            <div class="menu-item" onclick="switchTab('account-settings', this)">
+              <i class="fa-solid fa-gear"></i> 账号设置
+            </div>
+            <div class="menu-item" onclick="openChat()">
+              <i class="fa-solid fa-headset"></i> 联系专属客服
+            </div>
+            <div class="menu-item danger" onclick="window.location.href='index.html'">
+              <i class="fa-solid fa-sign-out-alt"></i> 退出登录
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 右侧内容面板 -->
+        <div class="profile-content">
+          
+          <!-- 面板 1：历史观看课程 -->
+          <div id="my-courses" class="tab-panel" style="display: block;">
+            <div class="panel-header">
+              <div class="panel-title"><i class="fa-solid fa-clock-rotate-left"></i> 历史观看课程</div>
+              <button class="btn-sm btn-outline-sm"><i class="fa-solid fa-trash-can"></i> 清空历史</button>
+            </div>
+            
+            <div class="item-list">
+              <div class="history-card">
+                <div class="history-img-wrap">
+                  <img src="./images/djzb2.png" alt="无人机" class="history-img">
+                  <div class="play-overlay"><i class="fa-regular fa-circle-play"></i></div>
+                </div>
+                <div class="history-content">
+                  <div class="history-title">大疆植保无人机飞行考证及实操演练 (零基础)</div>
+                  <div class="history-time">上次观看：第3章 航线规划与避障设置 (昨天 14:30)</div>
+                  <div class="history-progress-wrap">
+                    <div class="h-progress-bar"><div class="h-progress-fill" style="width: 45%;"></div></div>
+                    <span>已学习 45%</span>
+                    <button class="btn-sm btn-primary-sm" onclick="window.location.href='course-detail.html'">继续观看</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="history-card">
+                <div class="history-img-wrap">
+                  <img src="./images/g1.png" alt="拖拉机" class="history-img">
+                  <div class="play-overlay"><i class="fa-regular fa-circle-play"></i></div>
+                </div>
+                <div class="history-content">
+                  <div class="history-title">东方红大马力智能拖拉机日常保养与维护指南</div>
+                  <div class="history-time">上次观看：第1章 发动机机油与滤清器更换 (1周前)</div>
+                  <div class="history-progress-wrap">
+                    <div class="h-progress-bar"><div class="h-progress-fill" style="width: 15%;"></div></div>
+                    <span>已学习 15%</span>
+                    <button class="btn-sm btn-primary-sm" style="background: white; color: var(--primary-color); border: 1px solid var(--primary-color);">继续观看</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 面板 2：我的订单 -->
+          <div id="my-orders" class="tab-panel">
+            <div class="panel-header">
+              <div class="panel-title"><i class="fa-solid fa-clipboard-list"></i> 我的订单与物流</div>
+            </div>
+            
+            <div class="order-tabs">
+              <span class="order-tab" onclick="filterOrders('all', this)">全部订单</span>
+              <span class="order-tab" onclick="filterOrders('unpaid', this)">待付款</span>
+              <span class="order-tab" onclick="filterOrders('unshipped', this)">待发货</span>
+              <span class="order-tab active" onclick="filterOrders('shipping', this)">运输中 (1)</span>
+              <span class="order-tab" onclick="filterOrders('completed', this)">已完成 (1)</span>
+            </div>
+
+            <div class="item-list" id="order-list">
+              <!-- 空状态 -->
+              <div id="order-empty" style="display: none; text-align: center; padding: 60px 0; color: var(--text-secondary);">
+                <i class="fa-solid fa-box-open" style="font-size: 48px; color: #eee; margin-bottom: 16px; display: block;"></i>
+                <div>暂无相关的订单记录</div>
+              </div>
+
+              <!-- 订单卡片 1 -->
+              <div class="order-card" data-status="shipping">
+                <div class="order-header">
+                  <span>订单号：DD2026041000123</span>
+                  <span>下单时间：2026-04-05 14:30</span>
+                  <span style="color: #2196F3; font-weight: bold; font-size: 14px;">运输中</span>
+                </div>
+                <div class="order-body">
+                  <img src="./images/g2.png" alt="无人机" class="order-img">
+                  <div class="order-info">
+                    <div class="order-title">大疆 T50 农业植保无人机 大载重播撒 智能避障</div>
+                    <div class="order-sku">规格：标准版 + 双电套装</div>
+                  </div>
+                  <div class="order-price">
+                    <div>￥54,999.00</div>
+                    <div class="order-count">x1</div>
+                  </div>
+                </div>
+                <div class="order-footer">
+                  <div class="order-logistics">
+                    <i class="fa-solid fa-truck-fast logistics-hl"></i>
+                    最新物流：<span class="logistics-hl">【郑州市】已到达 郑州中转中心，准备发往 济南市 (3小时前)</span>
+                  </div>
+                  <div style="display: flex; gap: 12px;">
+                    <button class="btn-sm btn-outline-sm">查看物流详情</button>
+                    <button class="btn-sm btn-primary-sm">确认收货</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 订单卡片 2 -->
+              <div class="order-card" data-status="completed" style="display: none;">
+                <div class="order-header">
+                  <span>订单号：DD2026011500456</span>
+                  <span>下单时间：2026-01-15 09:20</span>
+                  <span style="color: #4CAF50; font-weight: bold; font-size: 14px;">已完成</span>
+                </div>
+                <div class="order-body">
+                  <img src="./images/g6.png" alt="配件" class="order-img">
+                  <div class="order-info">
+                    <div class="order-title">东方红拖拉机原厂保养配件套装 (机滤/柴滤/空滤)</div>
+                    <div class="order-sku">规格：适配1804/2004机型</div>
+                  </div>
+                  <div class="order-price">
+                    <div>￥1,200.00</div>
+                    <div class="order-count">x2</div>
+                  </div>
+                </div>
+                <div class="order-footer">
+                  <div class="order-logistics">
+                    <i class="fa-solid fa-box-open" style="color: #4CAF50;"></i>
+                    <span style="color: #4CAF50;">包裹已签收，感谢您的购买。</span>
+                  </div>
+                  <div style="display: flex; gap: 12px;">
+                    <button class="btn-sm btn-outline-sm">查看发票</button>
+                    <button class="btn-sm btn-primary-sm" style="background: white; color: var(--primary-color); border: 1px solid var(--primary-color);">评价商品</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 面板 3：我的设备 -->
+          <div id="my-devices" class="tab-panel">
+            <div class="panel-header">
+              <div class="panel-title"><i class="fa-solid fa-tractor"></i> 我的智能农机设备</div>
+              <button class="btn-sm btn-primary-sm"><i class="fa-solid fa-plus"></i> 绑定新设备</button>
+            </div>
+            
+            <div class="device-grid">
+              
+              <!-- 设备卡片 1 -->
+              <div class="device-card">
+                <div class="device-header">
+                  <div class="device-name"><i class="fa-solid fa-satellite-dish" style="color: #2196F3"></i> 大疆 T50 植保无人机</div>
+                  <div class="device-status status-online">在线 · 空闲</div>
+                </div>
+                <div class="device-body">
+                  <img src="./images/g4.png" alt="设备图" class="device-img">
+                  <div class="device-info">
+                    <div class="device-meta">
+                      设备编号：<span>DJI-T50-8849</span><br>
+                      累计作业：<span>1,250 亩</span><br>
+                      电池健康：<span style="color: #4CAF50">98% (良好)</span><br>
+                      最后作业：<span>昨天 16:30</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="device-actions">
+                  <button class="btn-sm btn-outline-sm">运行日志</button>
+                  <button class="btn-sm btn-outline-sm" style="color: #2196F3; border-color: #2196F3;">远程诊断</button>
+                </div>
+              </div>
+
+              <!-- 设备卡片 2 -->
+              <div class="device-card">
+                <div class="device-header">
+                  <div class="device-name"><i class="fa-solid fa-truck-pickup" style="color: #FF9800"></i> 东方红 1804 拖拉机</div>
+                  <div class="device-status status-working">在线 · 作业中</div>
+                </div>
+                <div class="device-body">
+                  <img src="./images/g3.png" alt="设备图" class="device-img">
+                  <div class="device-info">
+                    <div class="device-meta">
+                      设备编号：<span>DFH-1804-A1</span><br>
+                      累计工时：<span>3,420 小时</span><br>
+                      当前油量：<span style="color: #FF9800">45%</span><br>
+                      保养提醒：<span style="color: #F44336">距下次保养 20h</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="device-actions">
+                  <button class="btn-sm btn-outline-sm">北斗轨迹</button>
+                  <button class="btn-sm btn-primary-sm" style="background: #F44336;">一键报修</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 面板 4：我的发帖 -->
+          <div id="my-posts" class="tab-panel">
+            <div class="panel-header">
+              <div class="panel-title"><i class="fa-solid fa-pen-to-square"></i> 我的发帖记录 (2)</div>
+            </div>
+            <div class="item-list">
+              <div class="post-card">
+                <div class="post-header">
+                  <span>2026-04-10 10:30</span>
+                  <span style="color: #4CAF50;">公开</span>
+                </div>
+                <div class="post-content">
+                  <span style="color: var(--primary-color);">#农机心得#</span> 新入手的这台大疆T50植保无人机确实好用，今天试着喷了50亩麦地，效率比以前人工高太多了，而且喷洒均匀。想问问群里的兄弟，这机器日常电池保养有什么需要注意的吗？
+                </div>
+                <div class="post-stats">
+                  <span><i class="fa-regular fa-thumbs-up"></i> 128</span>
+                  <span><i class="fa-regular fa-comment"></i> 45</span>
+                  <span><i class="fa-regular fa-share-square"></i> 12</span>
+                </div>
+              </div>
+              
+              <div class="post-card">
+                <div class="post-header">
+                  <span>2026-03-25 15:20</span>
+                  <span style="color: #4CAF50;">公开</span>
+                </div>
+                <div class="post-content">
+                  今年春耕准备得很充分，化肥种子都已经入库。顺便给拖拉机做个全面大保养，换了机油、三滤。大家春耕备耕都做得怎么样了？有什么遇到困难的吗？
+                </div>
+                <div class="post-stats">
+                  <span><i class="fa-regular fa-thumbs-up"></i> 356</span>
+                  <span><i class="fa-regular fa-comment"></i> 89</span>
+                  <span><i class="fa-regular fa-share-square"></i> 24</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 面板 5：我的收藏 -->
+          <div id="my-favorites" class="tab-panel">
+            <div class="panel-header">
+              <div class="panel-title"><i class="fa-solid fa-star"></i> 收藏与点赞</div>
+            </div>
+            <div class="item-list">
+              <div class="fav-card">
+                <img src="./images/g1-1.png" alt="商品" class="fav-img">
+                <div class="fav-info">
+                  <div class="fav-title">东方红 2004 履带式拖拉机 智能导航版 国四排放</div>
+                  <div style="font-size: 15px; color: #E53935; font-weight: bold;">￥186,000</div>
+                  <div style="font-size: 13px; color: #999; margin-top: auto;">收藏于 2026-04-01</div>
+                </div>
+                <button class="btn-sm btn-outline-sm" style="align-self: center;">取消收藏</button>
+              </div>
+              
+              <div class="fav-card">
+                <img src="./images/g3.png" alt="课程" class="fav-img">
+                <div class="fav-info">
+                  <div class="fav-title">大型收割机田间作业高效操作指南 (进阶课程)</div>
+                  <div style="font-size: 14px; color: var(--primary-color);">课程分类：收获机械</div>
+                  <div style="font-size: 13px; color: #999; margin-top: auto;">点赞于 2026-03-15</div>
+                </div>
+                <button class="btn-sm btn-outline-sm" style="align-self: center;">取消点赞</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 面板 6：账号设置 -->
+          <div id="account-settings" class="tab-panel">
+            <div class="panel-header">
+              <div class="panel-title"><i class="fa-solid fa-gear"></i> 账号安全与设置</div>
+              <button class="btn-sm btn-primary-sm">保存修改</button>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px; max-width: 600px;">
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="font-size: 14px; color: var(--text-secondary);">用户昵称</label>
+                <input type="text" value="老张种粮" style="padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="font-size: 14px; color: var(--text-secondary);">绑定手机号</label>
+                <div style="display: flex; gap: 10px;">
+                  <input type="text" value="138****8888" disabled style="flex: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; background: #f5f5f5;">
+                  <button class="btn-sm btn-outline-sm">更换手机</button>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="font-size: 14px; color: var(--text-secondary);">实名认证状态</label>
+                <div style="padding: 10px 15px; border: 1px solid #C8E6C9; background: #E8F5E9; border-radius: 8px; font-size: 15px; color: #4CAF50; display: flex; align-items: center; gap: 10px;">
+                  <i class="fa-solid fa-circle-check"></i> 已完成个人实名认证 & 种植大户资质认证
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 客服聊天弹窗 -->
+  <div class="chat-modal" id="chatModal">
+    <div class="chat-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <i class="fa-solid fa-headset"></i> 专属客服 - 小农
+      </div>
+      <i class="fa-solid fa-times chat-close" onclick="closeChat()"></i>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-msg left">
+        <div class="chat-avatar"><i class="fa-solid fa-headset"></i></div>
+        <div class="chat-bubble">您好，张大伯！我是您的专属农机客服小农。请问有什么可以帮到您的？您最近购买的 T50 无人机使用还顺利吗？</div>
+      </div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" class="chat-input" id="chatInput" placeholder="输入您的问题...">
+      <button class="chat-send" onclick="sendMsg()"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script>
+    // Tab 切换逻辑
+    function switchTab(tabId, element) {
+      // 1. 更新左侧菜单高亮
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      element.classList.add('active');
+      
+      // 2. 隐藏所有面板
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.style.display = 'none';
+      });
+      
+      // 3. 显示目标面板
+      const targetPanel = document.getElementById(tabId);
+      if (targetPanel) {
+        targetPanel.style.display = 'block';
+      }
+    }
+
+    // 订单分类切换逻辑
+    function filterOrders(status, element) {
+      // 更新订单Tab高亮
+      document.querySelectorAll('.order-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      element.classList.add('active');
+      
+      // 筛选订单卡片
+      let visibleCount = 0;
+      document.querySelectorAll('.order-card').forEach(card => {
+        if (status === 'all' || card.getAttribute('data-status') === status) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // 控制空状态的显示
+      const emptyState = document.getElementById('order-empty');
+      if (emptyState) {
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+
+    // 客服聊天弹窗逻辑
+    function openChat() {
+      document.getElementById('chatModal').style.display = 'flex';
+    }
+
+    function closeChat() {
+      document.getElementById('chatModal').style.display = 'none';
+    }
+
+    function sendMsg() {
+      const input = document.getElementById('chatInput');
+      const val = input.value.trim();
+      if (!val) return;
+      
+      const body = document.getElementById('chatBody');
+      
+      // 添加用户消息
+      body.innerHTML += `
+        <div class="chat-msg right">
+          <div class="chat-avatar" style="background: url('images/avatar.png') center/cover;"></div>
+          <div class="chat-bubble">${val}</div>
+        </div>
+      `;
+      input.value = '';
+      body.scrollTop = body.scrollHeight;
+      
+      // 模拟客服自动回复
+      setTimeout(() => {
+        body.innerHTML += `
+          <div class="chat-msg left">
+            <div class="chat-avatar"><i class="fa-solid fa-headset"></i></div>
+            <div class="chat-bubble">收到您的问题，小农正在为您查询相关资料，请稍等片刻...</div>
+          </div>
+        `;
+        body.scrollTop = body.scrollHeight;
+      }, 1000);
+    }
+    
+    // 监听回车键发送
+    document.getElementById('chatInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') sendMsg();
+    });
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>

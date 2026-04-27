@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“e”农通 - 首页</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/enhance.css">
+  <link rel="stylesheet" href="css/course-player-admin.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="e农通Logo" style="height: 40px;"> “e”农通
+    </div>
+    
+    <div class="nav-links">
+      <a href="home.html" class="nav-item active">首页</a>
+      <a href="course.html" class="nav-item">培训课程</a>
+      <a href="mall.html" class="nav-item">商城</a>
+      <a href="community.html" class="nav-item">信息交流</a>
+      <a href="profile.html" class="nav-item">个人中心</a>
+    </div>
+    
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" placeholder="关键字搜索，例如：收割机教程...">
+        <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+      </div>
+      <div class="user-actions">
+        <a href="messages.html" style="text-decoration: none;">
+          <i class="fa-solid fa-bell" style="font-size: 20px; color: var(--text-secondary); margin-right: 20px; cursor: pointer;"></i>
+        </a>
+        <a href="profile.html" class="user-avatar" style="text-decoration: none; background-image: url('images/avatar.png'); background-size: cover; color: transparent;"></a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 主内容区域 -->
+  <div class="main-content">
+    <div class="home-container">
+      
+      <!-- 1. 顶部宽幅沉浸式 Banner -->
+      <div class="hero-banner">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <span class="hero-tag"><i class="fa-solid fa-leaf"></i> 农业部指导推荐</span>
+          <h1 class="hero-title">春耕备耕正当时<br>科技护航稳丰收</h1>
+          <p class="hero-desc">
+            为您提供专业的农业生产建议、智能化农机装备以及24小时精准气象预警。
+            在这里，我们用数据与科技的力量，助力您的每一分耕耘。
+          </p>
+          <a href="service-policy.html" class="btn-hero">了解最新指导意见 <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- 2. 金刚区：快捷服务入口 -->
+      <div class="services-grid">
+        <a href="service-policy.html" class="service-card">
+          <div class="service-icon icon-policy"><i class="fa-solid fa-bullhorn"></i></div>
+          <span class="service-name">最新政策</span>
+        </a>
+        <a href="service-weather.html" class="service-card">
+          <div class="service-icon icon-weather"><i class="fa-solid fa-cloud-sun"></i></div>
+          <span class="service-name">气象预警</span>
+        </a>
+        <a href="service-market.html" class="service-card">
+          <div class="service-icon icon-market"><i class="fa-solid fa-chart-line"></i></div>
+          <span class="service-name">市场行情</span>
+        </a>
+        <a href="service-finance.html" class="service-card">
+          <div class="service-icon icon-finance"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <span class="service-name">金融助农</span>
+        </a>
+        <a href="service-patent.html" class="service-card">
+          <div class="service-icon icon-patent"><i class="fa-solid fa-certificate"></i></div>
+          <span class="service-name">农机专利</span>
+        </a>
+        <a href="service-guide.html" class="service-card">
+          <div class="service-icon icon-guide"><i class="fa-solid fa-book-open"></i></div>
+          <span class="service-name">操作指引</span>
+        </a>
+        <a href="service-tech.html" class="service-card">
+          <div class="service-icon icon-tech"><i class="fa-solid fa-flask"></i></div>
+          <span class="service-name">农技推广</span>
+        </a>
+        <a href="service-all.html" class="service-card">
+          <div class="service-icon icon-more"><i class="fa-solid fa-border-all"></i></div>
+          <span class="service-name">全部服务</span>
+        </a>
+      </div>
+
+      <!-- 3. 主体分栏布局 (左侧内容 + 右侧侧边栏) -->
+      <div class="home-split-layout">
+        
+        <!-- 左侧：核心文章资讯 -->
+        <div class="home-main-col">
+          <div class="section-header">
+            <h2 class="section-title">热门农业资讯</h2>
+            <a href="service-all.html" class="view-more">查看更多 <i class="fa-solid fa-chevron-right" style="font-size: 12px;"></i></a>
+          </div>
+          
+          <div class="news-feed">
+            <!-- 资讯卡片 1 -->
+            <div class="news-card">
+              <img src="./images/h1.png" alt="新闻配图" class="news-img">
+              <div class="news-info">
+                <div>
+                  <h3 class="news-title">我国自主研发的大型智能联合收割机投入量产，开启无人化作业</h3>
+                  <p class="news-summary">该系列收割机搭载了最新的北斗高精度导航系统，能够实现全自动路径规划、自动收割、甚至智能避障，极大地缓解了秋收期间的人力短缺问题...</p>
+                </div>
+                <div class="news-meta">
+                  <span class="news-tag">科技装备</span>
+                  <span><i class="fa-regular fa-clock"></i> 2小时前</span>
+                  <span><i class="fa-regular fa-eye"></i> 1.2w 阅读</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 资讯卡片 2 -->
+            <div class="news-card">
+              <img src="./images/h2.png" alt="新闻配图" class="news-img">
+              <div class="news-info">
+                <div>
+                  <h3 class="news-title">农业农村部：确保全年粮食产量保持在1.3万亿斤以上</h3>
+                  <p class="news-summary">会议强调，要把抓好春耕备耕作为当前农业农村工作的重中之重，全面落实粮食安全党政同责，强化政策扶持，调动农民种粮积极性...</p>
+                </div>
+                <div class="news-meta">
+                  <span class="news-tag" style="color: #F44336; background: rgba(244, 67, 54, 0.1);">时政要闻</span>
+                  <span><i class="fa-regular fa-clock"></i> 昨天</span>
+                  <span><i class="fa-regular fa-eye"></i> 8.5k 阅读</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 资讯卡片 3 -->
+            <div class="news-card">
+              <img src="./images/h3.png" alt="新闻配图" class="news-img">
+              <div class="news-info">
+                <div>
+                  <h3 class="news-title">化肥价格近期走势分析与春耕备肥建议</h3>
+                  <p class="news-summary">随着春耕临近，国内化肥市场迎来需求旺季。本文将从尿素、磷肥、钾肥等主要品种入手，深度分析近期价格波动原因并提供备肥指南。</p>
+                </div>
+                <div class="news-meta">
+                  <span class="news-tag" style="color: #FF9800; background: rgba(255, 152, 0, 0.1);">市场洞察</span>
+                  <span><i class="fa-regular fa-clock"></i> 2天前</span>
+                  <span><i class="fa-regular fa-eye"></i> 6.3k 阅读</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧：公告与小组件 -->
+        <div class="home-sidebar-col">
+          
+          <!-- 公告组件 -->
+          <div class="sidebar-widget">
+            <h3 class="widget-title"><i class="fa-solid fa-volume-high" style="color: var(--primary-color);"></i> 平台公告</h3>
+            <div class="notice-list">
+              <a href="#" class="notice-item">
+                <div class="notice-date">
+                  <div class="day">10</div>
+                  <div class="month">4月</div>
+                </div>
+                <div class="notice-text">关于“e”农通App V2.0全面升级及新功能上线的通知</div>
+              </a>
+              <a href="#" class="notice-item">
+                <div class="notice-date">
+                  <div class="day">08</div>
+                  <div class="month">4月</div>
+                </div>
+                <div class="notice-text">2026年农机购置补贴政策解读线上公益讲座邀请函</div>
+              </a>
+              <a href="#" class="notice-item">
+                <div class="notice-date">
+                  <div class="day">05</div>
+                  <div class="month">4月</div>
+                </div>
+                <div class="notice-text">【紧急】防范近期北方大面积倒春寒天气的农业预警指导</div>
+              </a>
+            </div>
+          </div>
+
+          <!-- 行情组件 -->
+          <div class="sidebar-widget market-widget">
+            <h3 class="widget-title"><i class="fa-solid fa-arrow-trend-up" style="color: #FF5252;"></i> 农产品大宗行情</h3>
+            <div class="market-list">
+              <div class="market-item">
+                <span class="market-name">国标三等小麦</span>
+                <span class="market-price">2950元/吨</span>
+                <span class="market-trend trend-up"><i class="fa-solid fa-caret-up"></i> 1.2%</span>
+              </div>
+              <div class="market-item">
+                <span class="market-name">国标三等玉米</span>
+                <span class="market-price">2680元/吨</span>
+                <span class="market-trend trend-up"><i class="fa-solid fa-caret-up"></i> 0.5%</span>
+              </div>
+              <div class="market-item">
+                <span class="market-name">国产大豆</span>
+                <span class="market-price">4850元/吨</span>
+                <span class="market-trend trend-down"><i class="fa-solid fa-caret-down"></i> 0.3%</span>
+              </div>
+              <div class="market-item">
+                <span class="market-name">生猪(外三元)</span>
+                <span class="market-price">15.2元/公斤</span>
+                <span class="market-trend trend-up"><i class="fa-solid fa-caret-up"></i> 2.1%</span>
+              </div>
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+              <a href="#" style="font-size: 12px; color: #999; text-decoration: none;">数据来源：全国农产品批发市场数据中心</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

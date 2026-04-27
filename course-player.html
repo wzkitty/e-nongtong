@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>“e”农通 - 课程播放</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/enhance.css">
+  <link rel="stylesheet" href="css/course-player-admin.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand"><img src="images/logo.png" alt="e农通Logo" style="height: 40px;"> “e”农通</div>
+    <div class="nav-links">
+      <a href="home.html" class="nav-item">首页</a><a href="course.html" class="nav-item active">培训课程</a><a href="mall.html" class="nav-item">商城</a><a href="community.html" class="nav-item">信息交流</a><a href="profile.html" class="nav-item">个人中心</a>
+    </div>
+    <div class="nav-actions"><div class="search-bar"><input type="text" placeholder="关键字搜索，例如：收割机教程..."><button class="search-btn"><i class="fa-solid fa-search"></i></button></div><div class="user-actions"><a href="messages.html" style="text-decoration: none;"><i class="fa-solid fa-bell" style="font-size: 20px; color: var(--text-secondary); margin-right: 20px; cursor: pointer;"></i></a><a href="profile.html" class="user-avatar" style="text-decoration: none; background-image: url('images/avatar.png'); background-size: cover; color: transparent;"></a></div></div>
+  </nav>
+  <main class="player-page">
+    <div style="font-size:14px;color:#77847c;margin-bottom:18px"><a href="course.html" style="color:#5d9d57;text-decoration:none">培训课程</a> &gt; <span id="pCategory">课程</span> &gt; <span id="pTitleCrumb">课程播放</span></div>
+    <section class="player-layout">
+      <div>
+        <div class="player-main-card">
+          <div class="video-stage"><video id="mainVideo" controls playsinline preload="metadata"></video><div id="danmuLayer" class="danmu-layer"></div><div id="videoFallback" class="video-fallback"><i class="fa-solid fa-circle-play"></i><b>课程视频演示区</b><span>已直接关联农业生产与农机使用相关视频</span></div></div>
+          <div class="player-tools"><div class="player-tools-left"><button id="playBtn" class="tool-chip"><i class="fa-solid fa-play"></i> 播放</button><button id="favBtn" class="tool-chip"><i class="fa-solid fa-star"></i> 收藏</button><button id="completeBtn" class="tool-chip"><i class="fa-solid fa-check"></i> 标记完成</button></div><div class="player-tools-right"><input id="danmuText" class="danmu-input" placeholder="发一条弹幕"><button id="danmuSend" class="tool-chip">发送</button><span>倍速</span><select id="speedSelect" class="speed-select"><option value="0.75">0.75x</option><option value="1" selected>1.0x</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option><option value="2">2.0x</option></select></div></div>
+          <div class="player-info"><div id="pTitle" class="player-title">课程标题</div><div class="player-meta"><span><i class="fa-solid fa-user-tie"></i> <span id="pTeacher"></span></span><span><i class="fa-solid fa-layer-group"></i> <span id="pLevel"></span></span><span><i class="fa-solid fa-clock"></i> <span id="pDuration"></span></span><span><i class="fa-solid fa-play"></i> <span id="pViews"></span></span><span><i class="fa-solid fa-star" style="color:#ff9800"></i> <span id="pRating"></span></span></div><div class="progress-card"><div class="progress-row"><b>学习进度</b><div class="progress-line"><div id="progressFill" class="progress-fill"></div></div><span id="progressText">0%</span></div></div><div class="tab-panel"><div class="player-tabs"><div class="player-tab active" data-tab="introTab">课程介绍</div><div class="player-tab" data-tab="noteTab">学习笔记</div><div class="player-tab" data-tab="resourceTab">课程资料</div></div><div id="introTab" class="tab-content active"><p id="pIntro"></p></div><div id="noteTab" class="tab-content note-box"><textarea id="noteText" rows="6" placeholder="记录本节课程重点、设备参数、作业步骤、注意事项..."></textarea><div style="margin-top:10px"><button id="noteSave" class="action-btn">保存笔记</button></div></div><div id="resourceTab" class="tab-content"><p>资料包：操作规程 PDF、设备检查清单、课后练习题、常见问题汇总。</p><button class="action-btn secondary" onclick="alert('演示版：资料下载功能已预留，可接入真实文件地址')">下载课程资料</button></div></div></div>
+        </div>
+        <div class="comment-card"><div class="panel-title"><i class="fa-solid fa-comments"></i> 课程评论</div><div class="comment-input"><textarea id="commentText" rows="3" placeholder="发表你的学习问题或经验..."></textarea><button id="commentSend" class="action-btn" style="justify-self:start">发布评论</button></div><div id="commentList" class="comment-list"></div></div>
+      </div>
+      <aside class="lesson-sidebar"><div class="sidebar-title"><i class="fa-solid fa-list-ul"></i> 课程目录</div><div id="lessonList" class="lesson-list"></div><div class="recommend-card"><div class="sidebar-title"><i class="fa-solid fa-wand-magic-sparkles"></i> 智能推荐</div><div id="recommendList" class="recommend-list"></div></div></aside>
+    </section>
+  </main>
+  <script src="js/app.js"></script><script src="js/course-system.js"></script>
+</body></html>
